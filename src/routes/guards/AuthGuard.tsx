@@ -1,6 +1,5 @@
 import { Navigate } from "react-router-dom";
 
-
 interface IAuthGuardProps {
     children: React.ReactNode;
 }
