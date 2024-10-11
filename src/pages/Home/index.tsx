@@ -1,12 +1,11 @@
 import { Games } from '../../components/Games';
+import { Layout } from '../../ui/layout';
 
 const Home = () => {
     return (
-        <div>
-        <h1>Home</h1>
-
-        <Games />
-        </div>
+        <Layout>
+            <Games />
+        </Layout>
     );
     }
 
