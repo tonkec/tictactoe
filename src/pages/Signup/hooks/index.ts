@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import { register } from '../../../api/register';
+import { register } from '../../../api/auth/register';
 import { IUserProps } from "./../Signup.interface";
 
 function useCreateUser() {
