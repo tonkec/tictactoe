@@ -9,6 +9,8 @@ body, html, #root {
     @apply w-full h-full bg-pinkPale;
 }
 
-button:disabled {
-    @apply cursor-not-allowed bg-gray;
+input:disabled, 
+input[disabled]{
+    cursor: not-allowed;
+    opacity: 0.5;
 }
