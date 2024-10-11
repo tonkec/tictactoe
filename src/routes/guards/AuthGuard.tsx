@@ -1,5 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { useLocalStorage } from "@uidotdev/usehooks";
+import { Layout } from "../../ui/layout";
 
 interface IAuthGuardProps {
     children: React.ReactNode;
@@ -12,5 +13,7 @@ export const AuthGuard = ({ children }: IAuthGuardProps) => {
         return <Navigate to="/login" />;
     }
 
-    return children;
+    return <Layout>
+        {children}
+    </Layout>
 }

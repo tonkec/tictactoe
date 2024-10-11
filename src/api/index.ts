@@ -1,19 +1,17 @@
 import axios from 'axios';
-import { useLocalStorage } from "@uidotdev/usehooks";
 
-const fetchClient = () => {
+const fetchClient = ({ isAuth }: {isAuth: boolean}) => {
   const defaultOptions = {
     baseURL: 'https://tictactoe.aboutdream.io',
-    method: 'get',
     headers: {
       'Content-Type': 'application/json',
     },
   };
 
   const instance = axios.create(defaultOptions);
-
   instance.interceptors.request.use(function (config) {
-    const [isLoggedIn] = useLocalStorage("token");
+    if (isAuth) return config;
+    const isLoggedIn =  JSON.parse(localStorage.getItem('token') || "");
     config.headers.Authorization =  isLoggedIn ? `Bearer ${isLoggedIn}` : '';
     return config;
   });

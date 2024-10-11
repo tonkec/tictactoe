@@ -12,8 +12,8 @@ function useLoginUser() {
       mutationFn: ({ username, password }: IUserProps) =>
         login(username, password),
       onSuccess: (data) => {
-        navigate('/');
         saveAuthToken(data.data.token);
+        navigate('/');
       },
       onError: (err: Error) => console.log('error while logging in:', err.message), 
     });
