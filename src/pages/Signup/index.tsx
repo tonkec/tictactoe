@@ -6,7 +6,8 @@ import { IUserProps } from "./Signup.interface";
 import { useCreateUser } from "./hooks";
 
 export const Signup = () => {
-    const { createUser } = useCreateUser();
+    const { createUser, isSignupError, isCreating, isSuccess } = useCreateUser();
+    const message = isSignupError ? "Something went wrong" : isSuccess ? "You are signed up" : ""
 
     const onSubmit = (data: IUserProps) => {
         createUser(data)
@@ -14,7 +15,7 @@ export const Signup = () => {
     
     return <Container>
         <AuthContainer>
-            <AuthForm signupButtonText="Signup" headline="Create an account" subtitle="Signup and start playing."  onSubmit={onSubmit} linkComponent={() => <AuthLink title="Already registered? Login" href="/login" />}/>
+            <AuthForm isButtonDisabled={isCreating} message={message} signupButtonText="Signup" headline="Create an account" subtitle="Signup and start playing."  onSubmit={onSubmit} linkComponent={() => <AuthLink title="Already registered? Login" href="/login" />}/>
         </AuthContainer>
     </Container>
 }

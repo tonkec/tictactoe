@@ -3,7 +3,7 @@ import { register } from '../../../api/register';
 import { IUserProps } from "./../Signup.interface";
 
 function useCreateUser() {
-    const { mutate: createUser, isPending: isCreating } = useMutation({
+    const { mutate: createUser, isPending: isCreating, isError: isSignupError, isSuccess } = useMutation({
       mutationFn: ({ username, password }: IUserProps) =>
         register(username, password),
       onSuccess: () => {
@@ -14,7 +14,7 @@ function useCreateUser() {
       onError: (err: Error) => console.log('error while signing up:', err.message), 
     });
   
-    return { isCreating, createUser };
+    return { isCreating, createUser, isSignupError, isSuccess };
   }
 
 export { useCreateUser };

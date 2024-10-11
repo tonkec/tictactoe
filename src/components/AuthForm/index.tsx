@@ -4,11 +4,12 @@ import { buttonClassName, errorClassName, inputClassName, inputWrapper, formClas
 import { IAuthFormProps, Inputs } from "./AuthForm.interface";
 
 
-export const AuthForm = ({onSubmit, headline, subtitle, linkComponent: LinkComponent, signupButtonText}: IAuthFormProps) => {
+export const AuthForm = ({onSubmit, headline, subtitle, linkComponent: LinkComponent, signupButtonText, message, isButtonDisabled}: IAuthFormProps) => {
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
 
     return (
         <form className={formClassName} onSubmit={handleSubmit(onSubmit)}>
+        <p>{message}</p>
         <h1 className="text-4xl text-center">{headline}</h1>
         <p className="text-center">{subtitle}</p>
         <fieldset>
@@ -26,7 +27,7 @@ export const AuthForm = ({onSubmit, headline, subtitle, linkComponent: LinkCompo
                 </div>
                {errors.password && <span className={errorClassName}>This field is required</span>}
             </fieldset>
-            <input type="submit" className={buttonClassName} value={signupButtonText} />
+            <input type="submit" className={buttonClassName} value={signupButtonText} disabled={isButtonDisabled} />
             <LinkComponent />
             </form>
     )

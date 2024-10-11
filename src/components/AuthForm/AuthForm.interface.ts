@@ -11,4 +11,6 @@ export interface IAuthFormProps {
     subtitle: string
     linkComponent: React.FC
     signupButtonText: string
+    message: string
+    isButtonDisabled: boolean
 }

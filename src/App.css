@@ -8,3 +8,7 @@ body, html, #root {
     font-family: 'Roboto', sans-serif;
     @apply w-full h-full bg-pinkPale;
 }
+
+button:disabled {
+    @apply cursor-not-allowed bg-gray;
+}
