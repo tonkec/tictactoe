@@ -1,9 +1,8 @@
 import { AuthContainer } from "../../ui/auth"
 import { Container } from "../../ui/container"
 import { useForm, SubmitHandler } from "react-hook-form";
-import {  FaUserCircle, FaKey, FaRegCircle } from "react-icons/fa";
+import {  FaUserCircle, FaKey } from "react-icons/fa";
 import { buttonClassName, errorClassName, formClassName, inputClassName, inputWrapper, secondButtonClassName } from "./styles"
-import { IoCloseSharp } from "react-icons/io5";
 
 type Inputs = {
     username: string,
@@ -17,8 +16,8 @@ export const Login = () => {
     return <Container>
         <AuthContainer>
         <form className={formClassName} onSubmit={handleSubmit(onSubmit)}>
-            <h1 className="text-4xl text-center">Login</h1>
-            <p className="text-center">Login and start drawing some <IoCloseSharp className="inline text-purple" /> and <FaRegCircle className="inline text-purple" /></p>
+            <h1 className="text-4xl text-center">Welcome back</h1>
+            <p className="text-center">Login and start playing!</p>
                 <fieldset>
                     <div className={inputWrapper}>
                         <label className="absolute left-2 top-3"><FaUserCircle fontSize="1rem"  /></label>
