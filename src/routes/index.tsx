@@ -4,6 +4,7 @@ import {
 import { Root } from "./root";
 import { AuthGuard } from "./guards/AuthGuard";
 import { Login } from "../pages/Login";
+import { Signup } from "../pages/Signup";
 
 export const router = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ export const router = createBrowserRouter([
     {
         path: "/login",
         element: <Login />,
+    },
+    {
+        path: "/signup",
+        element: <Signup />,
     },
 ]);
 
