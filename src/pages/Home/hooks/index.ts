@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { getAllGames } from '../../../api/games/getAllGames';
-import { getPaginatedGames } from '../../../api/games/getNextGames';
+import { getPaginatedGames } from '../../../api/games/getPaginatedGames';
 
 export const useGetAllGames = () => {
     const { data: allGames, error: allGamesError, isPending: isAllGamesLoading } = useQuery({
@@ -10,8 +10,6 @@ export const useGetAllGames = () => {
     
     return { allGames, allGamesError, isAllGamesLoading };
     }
-
-
 
 export const useGetPaginatedGames = (url: string) => {
     const { data: nextGames, error: nextGamesError, isPending: isNextGamesLoading } = useQuery({
