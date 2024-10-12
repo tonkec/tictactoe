@@ -1,5 +1,5 @@
 import { useGetAllGames, useGetPaginatedGames } from './hooks';
-import { Game } from '../Game';
+import { Card } from '../Card';
 import { Loader } from '../Loader';
 import { useState } from 'react';
 import { FaLongArrowAltRight, FaLongArrowAltLeft } from 'react-icons/fa';
@@ -32,7 +32,7 @@ const Games = () => {
       <div className="flex flex-wrap gap-2"></div>
       <ul className="grid grid-cols-1 lg:grid-cols-2 gap-2 justify-items-center max-w-[700px] mx-auto">
         {nextGames?.data.results.map((game: IGame) => (
-          <Game key={game.id} game={game} />
+          <Card key={game.id} game={game} />
         ))}
       </ul>
       <div className="flex gap-2 mt-4 justify-center items-center">
