@@ -1,6 +1,6 @@
-type Board = (null | string | number)[][];
+type Board = number[][];
 
-type Player = {
+export type Player = {
   id: string;
   username: string;
 };
