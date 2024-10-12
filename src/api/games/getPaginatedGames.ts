@@ -1,8 +1,8 @@
-import { fetchClient } from "..";
+import { fetchClient } from '..';
 
-const getPaginatedGames = (next: string) => {
-    const client = fetchClient({ isAuth: false });
-    return client.get(next);
-}
+const getPaginatedGames = (url: string) => {
+  const client = fetchClient({ isAuth: false });
+  return client.get(url);
+};
 
 export { getPaginatedGames };
