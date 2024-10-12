@@ -1,7 +1,7 @@
-import { useGetAllGames, useGetPaginatedGames } from "../../pages/Home/hooks";
+import { useGetAllGames, useGetPaginatedGames } from "./hooks";
 import { Game } from "../Game";
 import { Loader } from "../Loader";
-import {  useState } from "react";
+import { useState } from "react";
 
 type Board = (null | string | number)[][];
 
