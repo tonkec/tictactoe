@@ -1,32 +1,22 @@
 import { IGame } from '../Games/Games.interface';
-import { useJoinGame } from '../Games/hooks';
-import { useState } from 'react';
-import { useLocalStorage } from '@uidotdev/usehooks';
+import { useNavigate } from 'react-router-dom';
 
 interface ICardProps {
   game: IGame;
 }
 
 const Card = ({ game }: ICardProps) => {
-  const [shouldJoinGame, setShouldJoinGame] = useState(false);
-  const { joinGameData } = useJoinGame(Number(game.id), shouldJoinGame);
-  const [userId] = useLocalStorage('userId');
+  const navigate = useNavigate();
 
   const buttonText = game.status === 'finished' ? 'View game' : 'Join game';
   const buttonBg = game.status === 'finished' ? 'bg-purple' : 'bg-pink';
 
   const onClick = () => {
     if (game.status === 'finished') {
+      navigate(`/game/${game.id}`);
       return;
     }
-
-    if (Number(userId) !== Number(game.first_player?.id)) {
-      setShouldJoinGame(true);
-      // todo antonija
-    }
   };
-
-  console.log(joinGameData); // todo antonija
 
   return (
     <div className="w-full block max-w-sm p-6 bg-white rounded-sm shadow">

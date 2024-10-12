@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getAllGames } from '../../../api/games/getAllGames';
 import { getPaginatedGames } from '../../../api/games/getPaginatedGames';
 import { joinGame } from '@/api/games/joinGame';
+import { getSingleGame } from '@/api/games/getSingleGame';
 
 export const useGetAllGames = () => {
   const {
@@ -41,4 +42,17 @@ export const useJoinGame = (id: number, enabled: boolean) => {
   });
 
   return { joinGameData, joinGameError, isJoiningGame };
+};
+
+export const useGetSingleGame = (id: number) => {
+  const {
+    data: singleGameData,
+    error: singleGameError,
+    isPending: isLoadingSingleGame,
+  } = useQuery({
+    queryKey: [`games/${id}/`],
+    queryFn: () => getSingleGame(id),
+  });
+
+  return { singleGameData, singleGameError, isLoadingSingleGame };
 };
