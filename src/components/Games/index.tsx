@@ -2,25 +2,9 @@ import { useGetAllGames, useGetPaginatedGames } from "./hooks";
 import { Game } from "../Game";
 import { Loader } from "../Loader";
 import { useState } from "react";
+import { FaLongArrowAltRight, FaLongArrowAltLeft } from "react-icons/fa";
+import { IGame } from "./Games.interface";
 
-type Board = (null | string | number)[][];
-
-type Player = {
-    id: string;
-    username: string;
-}
-
-type Status = 'open' | 'finished';
-
-export interface IGame {
-    id: string;
-    status: Status;
-    board: Board;
-    winner: Player | null;
-    firstPlayer: Player | null;
-    secondPlayer: Player | null;
-    created: Date;
-}
 
 const Games = () => {
     const {isAllGamesLoading, allGamesError, allGames} = useGetAllGames();
@@ -41,26 +25,23 @@ const Games = () => {
 
     return (
         <div>
-            <h2 className="text-2xl mb-6">All games available</h2>
+            <h2 className="text-2xl mb-6 mt-6 text-center">Select a game and start playing!</h2>
             <div className="flex flex-wrap gap-2">
             </div>
-            <ul className="grid grid-cols-2 gap-y-5">
+            <ul className="grid grid-cols-1 lg:grid-cols-2 gap-2 justify-items-center max-w-[700px] mx-auto">
                 {nextGames?.data.results.map((game: IGame) => (
                     <Game key={game.id} game={game} />
                 ))}
             </ul>
             <div className="flex gap-2 mt-4 justify-center items-center">
-                {nextGames?.data.previous &&(
-                    <button className="underline" onClick={() => {
+                    <button disabled={!nextGames?.data.previous} className="bg-black px-4 rounded" onClick={() => {
                         setPaginatedUrl(nextGames?.data.previous);
-                    }}>Previous</button>
-                )}
+                    }}><FaLongArrowAltLeft className="inline" fontSize="1.2rem" color="white" /></button>
+              
                 
-                {nextGames?.data.next && (
-                    <button className="underline" onClick={() => {
+              <button disabled={!nextGames?.data.next} className="bg-black px-4 rounded" onClick={() => {
                         setPaginatedUrl(nextGames?.data.next);
-                    }}>Next</button>
-                )}
+                    }}> <FaLongArrowAltRight className="inline" fontSize="1.2rem" color="white" /></button>
             </div>
         </div>
     );

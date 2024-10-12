@@ -1,11 +1,11 @@
-import { IGame } from "../Games";
+import { IGame } from "../Games/Games.interface";
 
 interface IGameProps {
     game: IGame;
 }
 
 const Game = ({game}: IGameProps) => {
-    return <div className="flex-1 block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+    return <div className="w-full block max-w-sm p-6 bg-white rounded-sm shadow">
         <h2>Game id: {game.id}</h2>
         <p>Status: {game.status}</p>
     </div>

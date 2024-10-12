@@ -10,7 +10,9 @@ body, html, #root {
 }
 
 input:disabled, 
-input[disabled]{
+input[disabled],
+button:disabled,
+button[disabled] {
     cursor: not-allowed;
     opacity: 0.5;
 }
