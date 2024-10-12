@@ -1,7 +1,7 @@
-import { fetchClient } from '..';
+import { apiClient } from '..';
 
 const getPaginatedGames = (url: string) => {
-  const client = fetchClient({ isAuth: false });
+  const client = apiClient({ isAuth: false });
   return client.get(url);
 };
 

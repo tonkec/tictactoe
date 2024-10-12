@@ -1,8 +1,8 @@
-import { fetchClient } from "..";
+import { apiClient } from '..';
 
 const getAllGames = () => {
-    const client = fetchClient({ isAuth: false });
-    return client.get('/games/');
-}
+  const client = apiClient({ isAuth: false });
+  return client.get('/games/');
+};
 
 export { getAllGames };

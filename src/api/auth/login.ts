@@ -1,6 +1,6 @@
-import { fetchClient } from '..';
+import { apiClient } from '..';
 
 export const login = async (username: string, password: string) => {
-  const client = fetchClient({isAuth: true});
-  return client.post(`/login/`, {username, password})
-} 
+  const client = apiClient({ isAuth: true });
+  return client.post(`/login/`, { username, password });
+};

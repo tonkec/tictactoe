@@ -1,6 +1,6 @@
-import { fetchClient } from "./../index";
+import { apiClient } from './../index';
 
 export const register = async (username: string, password: string) => {
-  const client = fetchClient({isAuth: true});
-  return client.post(`/register/`, {username, password})
-} 
+  const client = apiClient({ isAuth: true });
+  return client.post(`/register/`, { username, password });
+};
