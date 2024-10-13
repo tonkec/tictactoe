@@ -57,7 +57,6 @@ const Games = () => {
             setPaginatedUrl(nextGames?.data.next);
           }}
         >
-          {' '}
           <FaLongArrowAltRight
             className="inline"
             fontSize="1.2rem"

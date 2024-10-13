@@ -3,7 +3,6 @@ import { getAllGames } from '../../../api/games/getAllGames';
 import { getPaginatedGames } from '../../../api/games/getPaginatedGames';
 import { joinGame } from '@/api/games/joinGame';
 import { getSingleGame } from '@/api/games/getSingleGame';
-import { useNavigate } from 'react-router-dom';
 
 export const useGetAllGames = () => {
   const {
@@ -32,8 +31,6 @@ export const useGetPaginatedGames = (url: string) => {
 };
 
 export const useJoinGame = (id: number) => {
-  const navigate = useNavigate();
-
   const {
     mutate: joinGameMutation,
     isPending: isJoinGameLoading,
@@ -42,7 +39,7 @@ export const useJoinGame = (id: number) => {
   } = useMutation({
     mutationFn: () => joinGame(id),
     onSuccess: () => {
-      navigate('/');
+      console.log('game joined successfully');
     },
     onError: (err: Error) =>
       console.log('error while joining the game:', err.message),

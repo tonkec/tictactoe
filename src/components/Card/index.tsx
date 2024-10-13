@@ -27,6 +27,7 @@ const Card = ({ game }: ICardProps) => {
         onClick={() => {
           if (buttonText === 'Join') {
             joinGameMutation();
+            navigate(`/game/${game.id}`);
           } else if (buttonText === 'Continue') {
             navigate(`/game/${game.id}`);
           } else if (buttonText === 'View') {
