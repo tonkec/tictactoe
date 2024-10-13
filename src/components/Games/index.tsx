@@ -7,7 +7,7 @@ import { IGame } from './Games.interface';
 
 const Games = () => {
   const { isAllGamesLoading, allGamesError, allGames } = useGetAllGames();
-  const [paginatedUrl, setPaginatedUrl] = useState<string>(allGames?.data.next);
+  const [paginatedUrl, setPaginatedUrl] = useState<string>('');
   const { nextGames, isNextGamesLoading } = useGetPaginatedGames(
     paginatedUrl || '/games/',
   );
