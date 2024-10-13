@@ -21,7 +21,10 @@ const Game = () => {
     // todo antonija
     return (
       <Container>
-        <h2 className="text-center text-4xl">Game is {status}</h2>
+        <h2 className="text-center text-4xl">Game status: {status}</h2>
+        <div className="flex justify-center mt-12">
+          <Board isClickable game={game} />
+        </div>
       </Container>
     );
   }
