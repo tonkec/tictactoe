@@ -1,8 +1,9 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useMutation } from '@tanstack/react-query';
 import { getAllGames } from '../../../api/games/getAllGames';
 import { getPaginatedGames } from '../../../api/games/getPaginatedGames';
 import { joinGame } from '@/api/games/joinGame';
 import { getSingleGame } from '@/api/games/getSingleGame';
+import { useNavigate } from 'react-router-dom';
 
 export const useGetAllGames = () => {
   const {
@@ -30,18 +31,28 @@ export const useGetPaginatedGames = (url: string) => {
   return { nextGames, nextGamesError, isNextGamesLoading };
 };
 
-export const useJoinGame = (id: number, enabled: boolean) => {
-  const {
-    data: joinGameData,
-    error: joinGameError,
-    isPending: isJoiningGame,
-  } = useQuery({
-    queryKey: [`games/${id}/join/`],
-    queryFn: () => joinGame(id),
-    enabled,
-  });
+export const useJoinGame = (id: number) => {
+  const navigate = useNavigate();
 
-  return { joinGameData, joinGameError, isJoiningGame };
+  const {
+    mutate: joinGameMutation,
+    isPending: isJoinGameLoading,
+    isError: joinGameError,
+    isSuccess: isJoinGameSuccess,
+  } = useMutation({
+    mutationFn: () => joinGame(id),
+    onSuccess: () => {
+      navigate('/');
+    },
+    onError: (err: Error) =>
+      console.log('error while joining the game:', err.message),
+  });
+  return {
+    joinGameMutation,
+    joinGameError,
+    isJoinGameLoading,
+    isJoinGameSuccess,
+  };
 };
 
 export const useGetSingleGame = (id: number) => {

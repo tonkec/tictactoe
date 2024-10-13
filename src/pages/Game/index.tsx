@@ -13,8 +13,19 @@ const Game = () => {
   if (isLoadingSingleGame) {
     return <Loader />;
   }
+
   const game = singleGameData?.data;
-  const { first_player, second_player } = game;
+  const { first_player, second_player, status } = game;
+
+  if (status === 'progress' || status === 'open') {
+    // todo antonija
+    return (
+      <Container>
+        <h2 className="text-center text-4xl">Game is {status}</h2>
+      </Container>
+    );
+  }
+
   const winner = determineWinner(game.winner, first_player, second_player);
 
   return (

@@ -5,7 +5,7 @@ export type Player = {
   username: string;
 };
 
-type Status = 'open' | 'finished';
+type Status = 'open' | 'finished' | 'progress';
 
 export interface IGame {
   id: string;
