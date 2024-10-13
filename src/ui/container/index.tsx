@@ -1,7 +1,10 @@
 interface IContainerProps {
   children: React.ReactNode;
+  isAuth?: boolean;
 }
 
-export const Container = ({ children }: IContainerProps) => (
-  <div className="max-w-[1000px] mx-auto pt-16 pb-16">{children}</div>
+export const Container = ({ children, isAuth }: IContainerProps) => (
+  <div className={`max-w-[1000px] mx-auto pt-16 pb-16 ${isAuth && 'h-full'}`}>
+    {children}
+  </div>
 );

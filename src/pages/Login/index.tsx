@@ -18,7 +18,7 @@ export const Login = () => {
   };
 
   return (
-    <Container>
+    <Container isAuth>
       <AuthContainer>
         <AuthForm
           isButtonDisabled={isCreating}

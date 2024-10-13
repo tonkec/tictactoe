@@ -19,7 +19,7 @@ const Game = () => {
 
   return (
     <Container>
-      <p className="text-center text-4xl">
+      <h2 className="text-center text-4xl">
         <span className={getClassName(winner, first_player.username)}>
           {capitalize(first_player.username)}
         </span>
@@ -27,7 +27,7 @@ const Game = () => {
         <span className={getClassName(winner, second_player.username)}>
           {capitalize(second_player.username)}
         </span>
-      </p>
+      </h2>
       <div className="flex justify-center mt-12">
         <Board game={game} />
       </div>
