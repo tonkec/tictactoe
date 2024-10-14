@@ -1,7 +1,9 @@
 import { IMoveProps, makeMove } from '@/api/games/makeMove';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-const useMakeMove = () => {
+const useMakeMove = (id: number) => {
+  const queryClient = useQueryClient();
+
   const {
     mutate: makeMoveMutatation,
     isPending: isMakingMove,
@@ -10,7 +12,8 @@ const useMakeMove = () => {
   } = useMutation({
     mutationFn: ({ id, row, col }: IMoveProps) => makeMove({ id, row, col }),
     onSuccess: () => {
-      console.log('game joined successfully');
+      console.log(id);
+      return queryClient.invalidateQueries({ queryKey: [`game`, id] });
     },
     onError: (err: Error) =>
       console.log('error while joining the game:', err.message),

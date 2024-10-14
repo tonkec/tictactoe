@@ -58,7 +58,7 @@ export const useGetSingleGame = (id: number) => {
     error: singleGameError,
     isPending: isLoadingSingleGame,
   } = useQuery({
-    queryKey: [`games/${id}/`],
+    queryKey: ['game', id],
     queryFn: () => getSingleGame(id),
   });
 

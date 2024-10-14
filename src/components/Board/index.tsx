@@ -8,8 +8,8 @@ interface IBoardProps {
 }
 
 const Board = ({ game, isClickable }: IBoardProps) => {
-  const { makeMoveMutatation } = useMakeMove();
   const id = Number(game.id);
+  const { makeMoveMutatation } = useMakeMove(id);
   const { board, first_player, second_player } = game;
   const winningCells = getWinningCells(board);
 
@@ -28,7 +28,6 @@ const Board = ({ game, isClickable }: IBoardProps) => {
                 key={`${rowIndex}-${colIndex}`}
                 className="w-24 h-24 flex justify-center items-center bg-blue text-white bg-white"
                 onClick={() => {
-                  console.log('clicked', rowIndex, colIndex);
                   const col = colIndex;
                   const row = rowIndex;
                   makeMoveMutatation({ id, row, col });
