@@ -60,6 +60,8 @@ export const useGetSingleGame = (id: number) => {
   } = useQuery({
     queryKey: ['game', id],
     queryFn: () => getSingleGame(id),
+    refetchInterval: 1000,
+    staleTime: 0,
   });
 
   return { singleGameData, singleGameError, isLoadingSingleGame };
