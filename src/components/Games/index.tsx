@@ -4,6 +4,7 @@ import { Loader } from '../Loader';
 import { useState } from 'react';
 import { FaLongArrowAltRight, FaLongArrowAltLeft } from 'react-icons/fa';
 import { IGame } from './Games.interface';
+import { Container } from '@/ui/container';
 
 const Games = () => {
   const { isAllGamesLoading, allGamesError, allGames } = useGetAllGames();
@@ -13,7 +14,11 @@ const Games = () => {
   );
 
   if (isAllGamesLoading || isNextGamesLoading) {
-    return <Loader />;
+    return (
+      <Container>
+        <Loader />;
+      </Container>
+    );
   }
 
   if (allGamesError) {
@@ -26,9 +31,7 @@ const Games = () => {
 
   return (
     <div className="px-4">
-      <h2 className="text-2xl mb-6 mt-6 text-center">
-        Select a game and start playing!
-      </h2>
+      <h2 className="text-3xl mb-12 mt-12 text-center">All games</h2>
       <div className="flex flex-wrap gap-2"></div>
       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 justify-items-center max-w-[700px] mx-auto">
         {nextGames?.data.results.map((game: IGame) => (

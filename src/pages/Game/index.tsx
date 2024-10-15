@@ -22,7 +22,11 @@ const Game = () => {
   }, [singleGameError]);
 
   if (isLoadingSingleGame) {
-    return <Loader />;
+    return (
+      <Container>
+        <Loader />
+      </Container>
+    );
   }
 
   if (singleGameError) {
