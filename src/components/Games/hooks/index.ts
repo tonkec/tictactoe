@@ -56,7 +56,7 @@ export const useJoinGame = (id: number) => {
   };
 };
 
-export const useGetSingleGame = (id: number) => {
+export const useGetSingleGame = (id: number, refetchTime: number) => {
   const {
     data: singleGameData,
     error: singleGameError,
@@ -64,7 +64,7 @@ export const useGetSingleGame = (id: number) => {
   } = useQuery({
     queryKey: ['game', id],
     queryFn: () => getSingleGame(id),
-    refetchInterval: 1000,
+    refetchInterval: refetchTime,
     staleTime: 0,
   });
 

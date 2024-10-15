@@ -1,17 +1,39 @@
 import { useGetSingleGame } from '@/components/Games/hooks';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Board } from '@/components/Board';
 import { Loader } from '@/components/Loader';
 import { Container } from '@/ui/container';
 import { capitalize, determineWinner, getClassName } from './utils';
+import { useEffect, useState } from 'react';
 
 const Game = () => {
+  const [refetchTime, setRefetchTime] = useState(0);
   const params = useParams();
   const id = params.id;
-  const { singleGameData, isLoadingSingleGame } = useGetSingleGame(Number(id));
+  const { singleGameData, isLoadingSingleGame, singleGameError } =
+    useGetSingleGame(Number(id), refetchTime);
+
+  useEffect(() => {
+    if (!singleGameError) {
+      setRefetchTime(refetchTime + 1000);
+    }
+  }, [singleGameError, refetchTime]);
 
   if (isLoadingSingleGame) {
     return <Loader />;
+  }
+
+  if (singleGameError) {
+    return (
+      <Container>
+        <div className="flex flex-col justify-center items-center">
+          <h2 className="text-center text-4xl">Game not found</h2>
+          <Link to="/" className="underline mt-4">
+            Go home
+          </Link>
+        </div>
+      </Container>
+    );
   }
 
   const game = singleGameData?.data;
