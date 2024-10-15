@@ -1,50 +1,34 @@
-# React + TypeScript + Vite
+# Tic Tac Toe game 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- This game implements the tic tac toe functionality relying on the API `https://tictactoe.aboutdream.io`
 
-Currently, two official plugins are available:
+### Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React
+- React Query
+- axios
+- react-hook-form
+- react-toastify
+- tailwind
+- vite
+- eslint
+- prettier
+- husky
 
-## Expanding the ESLint configuration
+### Technical decisions
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+###### Interceptors
 
-- Configure the top-level `parserOptions` property like this:
+I used Axios interceptors for requests because they allow me to centralize logic that needs to be applied before a request is sent. For example, I can attach tokens for authentication, handle errors globally, and modify requests or responses without having to duplicate code across different parts of my app. This makes my code cleaner and more maintainable, especially when I need to add things like error logging or request retries.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+###### Named exports
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+I chose named exports because they offer better clarity and flexibility when importing multiple items from a module. With named exports, I can export multiple functions, constants, or components from a single file and selectively import only the ones I need in another file. This helps in avoiding unnecessary imports, keeps the codebase organized, and makes it easier to refactor or add more exports in the future without affecting existing imports. Additionally, named exports can help with auto-completion and give me a clear idea of what’s available in a module.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+###### Tailwind
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+I chose Tailwind because it allows me to write utility-first CSS directly in my HTML, speeding up the process of styling. Its approach encourages reusable, responsive design without needing to write custom CSS for each component, helping me maintain consistency and efficiency across the project.
+
+###### React hook form
+
+I chose React Hook Form because it simplifies form management by providing easy validation, error handling, and form state management. It is highly performant since it reduces re-renders and efficiently handles large forms. Additionally, React Hook Form has great integration with TypeScript, making it easier to work with strongly-typed forms.
