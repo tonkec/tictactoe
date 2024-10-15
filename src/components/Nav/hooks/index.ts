@@ -1,8 +1,8 @@
 import { useMutation } from '@tanstack/react-query';
-import { logout } from '../../../api/auth/logout';
+import { logout } from '@/api/auth/logout';
 import { useNavigate } from 'react-router-dom';
 import { useLocalStorage } from '@uidotdev/usehooks';
-import { createNewGame } from '../../../api/games/createNewGame';
+import { createNewGame } from '@/api/games/createNewGame';
 import { toast } from 'react-toastify';
 import { toastConfig } from '@/toast.config';
 

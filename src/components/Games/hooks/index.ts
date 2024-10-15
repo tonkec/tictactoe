@@ -1,6 +1,6 @@
 import { useQuery, useMutation } from '@tanstack/react-query';
-import { getAllGames } from '../../../api/games/getAllGames';
-import { getPaginatedGames } from '../../../api/games/getPaginatedGames';
+import { getAllGames } from '@/api/games/getAllGames';
+import { getPaginatedGames } from '@/api/games/getPaginatedGames';
 import { joinGame } from '@/api/games/joinGame';
 import { getSingleGame } from '@/api/games/getSingleGame';
 import { toast } from 'react-toastify';

@@ -1,4 +1,4 @@
-import { IGame } from '../Games/Games.interface';
+import { IGame } from '@/components/Games/Games.interface';
 
 export interface IBoardProps {
   game: IGame;

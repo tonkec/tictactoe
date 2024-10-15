@@ -1,6 +1,6 @@
 import { useLocalStorage } from '@uidotdev/usehooks';
 import { useNavigate } from 'react-router-dom';
-import { useJoinGame } from '../Games/hooks';
+import { useJoinGame } from '@/components/Games/hooks';
 import { getButtonText, getButtonColor } from './utils';
 import { ICardProps } from './Card.interface';
 

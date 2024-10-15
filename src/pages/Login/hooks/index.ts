@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import { login } from '../../../api/auth/login';
+import { login } from '@/api/auth/login';
 import { IUserProps } from './../Login.interface';
 import { useLocalStorage } from '@uidotdev/usehooks';
 import { useNavigate } from 'react-router-dom';

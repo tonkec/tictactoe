@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import { register } from '../../../api/auth/register';
+import { register } from '@/api/auth/register';
 import { IUserProps } from './../Signup.interface';
 import { toast } from 'react-toastify';
 import { toastConfig } from '@/toast.config';

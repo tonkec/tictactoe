@@ -1,7 +1,7 @@
-import { AuthForm } from '../../components/AuthForm';
-import { AuthContainer } from '../../ui/auth';
-import { Container } from '../../ui/container';
-import { AuthLink } from '../../components/AuthLink';
+import { AuthForm } from '@/components/AuthForm';
+import { AuthContainer } from '@/ui/auth';
+import { Container } from '@/ui/container';
+import { AuthLink } from '@/components/AuthLink';
 import { IUserProps } from './Signup.interface';
 import { useCreateUser } from './hooks';
 

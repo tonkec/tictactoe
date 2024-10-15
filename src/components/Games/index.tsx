@@ -1,6 +1,6 @@
 import { useGetAllGames, useGetPaginatedGames } from './hooks';
-import { Card } from '../Card';
-import { Loader } from '../Loader';
+import { Card } from '@/components/Card';
+import { Loader } from '@/components/Loader';
 import { useState } from 'react';
 import { FaLongArrowAltRight, FaLongArrowAltLeft } from 'react-icons/fa';
 import { IGame } from './Games.interface';
