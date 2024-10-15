@@ -14,10 +14,12 @@ const Game = () => {
     useGetSingleGame(Number(id), refetchTime);
 
   useEffect(() => {
-    if (!singleGameError) {
-      setRefetchTime(refetchTime + 1000);
+    if (singleGameError) {
+      setRefetchTime(0);
+      return;
     }
-  }, [singleGameError, refetchTime]);
+    setRefetchTime(1000);
+  }, [singleGameError]);
 
   if (isLoadingSingleGame) {
     return <Loader />;
