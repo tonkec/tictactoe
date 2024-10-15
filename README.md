@@ -5,6 +5,10 @@
 
 - This game implements the tic tac toe functionality relying on the API `https://tictactoe.aboutdream.io`
 
+### Demo
+
+- demo is [here](https://aboutdream.netlify.app/login)
+
 ### How to run this app
 
 - git clone the project 
