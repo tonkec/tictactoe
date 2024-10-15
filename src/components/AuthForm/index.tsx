@@ -15,7 +15,6 @@ export const AuthForm = ({
   subtitle,
   linkComponent: LinkComponent,
   signupButtonText,
-  message,
   isButtonDisabled,
 }: IAuthFormProps) => {
   const {
@@ -26,7 +25,6 @@ export const AuthForm = ({
 
   return (
     <form className={formClassName} onSubmit={handleSubmit(onSubmit)}>
-      <p>{message}</p>
       <h1 className="text-4xl text-center">{headline}</h1>
       <p className="text-center">{subtitle}</p>
       <fieldset>

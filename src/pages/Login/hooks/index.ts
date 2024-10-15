@@ -3,6 +3,8 @@ import { login } from '../../../api/auth/login';
 import { IUserProps } from './../Login.interface';
 import { useLocalStorage } from '@uidotdev/usehooks';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { toastConfig } from '@/toast.config';
 
 function useLoginUser() {
   const navigate = useNavigate();
@@ -20,10 +22,13 @@ function useLoginUser() {
     onSuccess: (data) => {
       saveAuthToken(data.data.token);
       saveUserId(data.data.id);
+      toast.success('Successfully logged in!', toastConfig);
       navigate('/');
     },
-    onError: (err: Error) =>
-      console.log('error while logging in:', err.message),
+    onError: (err: Error) => {
+      console.error(err);
+      toast.error('Please try again', toastConfig);
+    },
   });
 
   return { isCreating, loginUser, isSignupError, isSuccess };

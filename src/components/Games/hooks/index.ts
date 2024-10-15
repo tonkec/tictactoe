@@ -3,6 +3,8 @@ import { getAllGames } from '../../../api/games/getAllGames';
 import { getPaginatedGames } from '../../../api/games/getPaginatedGames';
 import { joinGame } from '@/api/games/joinGame';
 import { getSingleGame } from '@/api/games/getSingleGame';
+import { toast } from 'react-toastify';
+import { toastConfig } from '@/toast.config';
 
 export const useGetAllGames = () => {
   const {
@@ -39,10 +41,12 @@ export const useJoinGame = (id: number) => {
   } = useMutation({
     mutationFn: () => joinGame(id),
     onSuccess: () => {
-      console.log('game joined successfully');
+      toast.success('Successfully joined the game!', toastConfig);
     },
-    onError: (err: Error) =>
-      console.log('error while joining the game:', err.message),
+    onError: (err: Error) => {
+      console.error(err);
+      toast.error('There was an error joining the game', toastConfig);
+    },
   });
   return {
     joinGameMutation,

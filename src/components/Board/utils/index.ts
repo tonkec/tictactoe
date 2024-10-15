@@ -2,7 +2,6 @@ const allEqual = (arr: number[]) => arr.every((val) => val === arr[0]);
 
 export const getWinningCells = (board: number[][]) => {
   if (!board) return new Set();
-  // check if boad is empty
 
   if (board.flat().every((cell) => cell === null)) {
     return new Set();

@@ -1,9 +1,7 @@
 import { Games } from '../../components/Games';
 
 const Home = () => {
-    return (
-        <Games />
-    );
-    }
+  return <Games />;
+};
 
-    export { Home };
+export { Home };

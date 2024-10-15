@@ -6,12 +6,7 @@ import { useLoginUser } from './hooks';
 import { IUserProps } from './Login.interface';
 
 export const Login = () => {
-  const { loginUser, isSignupError, isCreating, isSuccess } = useLoginUser();
-  const message = isSignupError
-    ? 'Something went wrong'
-    : isSuccess
-      ? 'You are logged in'
-      : '';
+  const { loginUser, isCreating } = useLoginUser();
 
   const onSubmit = (data: IUserProps) => {
     loginUser(data);
@@ -22,7 +17,6 @@ export const Login = () => {
       <AuthContainer>
         <AuthForm
           isButtonDisabled={isCreating}
-          message={message}
           signupButtonText="Login"
           onSubmit={onSubmit}
           headline="Welcome back!"

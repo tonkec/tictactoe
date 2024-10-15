@@ -26,7 +26,7 @@ const Board = ({ game, isClickable }: IBoardProps) => {
             <div key={colIndex}>
               <button
                 key={`${rowIndex}-${colIndex}`}
-                className="w-24 h-24 flex justify-center items-center bg-blue text-white bg-white"
+                className="w-24 h-24 flex justify-center items-center bg-blue text-white"
                 onClick={() => {
                   const col = colIndex;
                   const row = rowIndex;
@@ -50,7 +50,7 @@ const Board = ({ game, isClickable }: IBoardProps) => {
       <div
         key={`${row}-${col}`}
         className={`w-24 h-24 flex justify-center items-center bg-blue text-white ${
-          isWinningCell ? 'bg-green-200' : 'bg-white'
+          isWinningCell ? 'bg-green-200' : 'bg-blue'
         }`}
       >
         <span className="text-2xl">{symbol}</span>

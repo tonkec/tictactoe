@@ -1,16 +1,15 @@
-import { SubmitHandler } from "react-hook-form";
+import { SubmitHandler } from 'react-hook-form';
 
 export type Inputs = {
-    username: string,
-    password: string
+  username: string;
+  password: string;
 };
 
 export interface IAuthFormProps {
-    onSubmit: SubmitHandler<Inputs>
-    headline: string
-    subtitle: string
-    linkComponent: React.FC
-    signupButtonText: string
-    message: string
-    isButtonDisabled: boolean
+  onSubmit: SubmitHandler<Inputs>;
+  headline: string;
+  subtitle: string;
+  linkComponent: React.FC;
+  signupButtonText: string;
+  isButtonDisabled: boolean;
 }

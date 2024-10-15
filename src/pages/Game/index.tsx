@@ -18,7 +18,6 @@ const Game = () => {
   const { first_player, second_player, status } = game;
 
   if (status === 'progress' || status === 'open') {
-    // todo antonija
     return (
       <Container>
         <h2 className="text-center text-4xl">Game status: {status}</h2>
