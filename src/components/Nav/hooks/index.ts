@@ -5,6 +5,7 @@ import { useLocalStorage } from '@uidotdev/usehooks';
 import { createNewGame } from '@/api/games/createNewGame';
 import { toast } from 'react-toastify';
 import { toastConfig } from '@/toast.config';
+import { Error, getErrorMessage } from '@/getErrorMessage';
 
 function useLogoutUser() {
   const navigate = useNavigate();
@@ -23,8 +24,7 @@ function useLogoutUser() {
       toast.success('Logged out successfully', toastConfig);
     },
     onError: (err: Error) => {
-      console.log('error while logging out:', err.message);
-      toast.error('Error while logging out', toastConfig);
+      toast.error(getErrorMessage(err), toastConfig);
     },
   });
 
@@ -46,7 +46,9 @@ function useNewGame() {
     onSuccess: (data) => {
       navigate(`/game/${Number(data.data.id)}`);
     },
-    onError: (err: Error) => console.log('error while creating game:', err),
+    onError: (err: Error) => {
+      toast.error(getErrorMessage(err), toastConfig);
+    },
   });
 
   return {

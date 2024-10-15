@@ -4,6 +4,7 @@ import { IUserProps } from './../Signup.interface';
 import { toast } from 'react-toastify';
 import { toastConfig } from '@/toast.config';
 import { useNavigate } from 'react-router-dom';
+import { Error, getErrorMessage } from '@/getErrorMessage';
 
 function useCreateUser() {
   const navigate = useNavigate();
@@ -20,8 +21,7 @@ function useCreateUser() {
       navigate('/login');
     },
     onError: (err: Error) => {
-      console.error(err);
-      toast.error('Please try again', toastConfig);
+      toast.error(getErrorMessage(err), toastConfig);
     },
   });
 

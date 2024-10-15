@@ -5,6 +5,7 @@ import { joinGame } from '@/api/games/joinGame';
 import { getSingleGame } from '@/api/games/getSingleGame';
 import { toast } from 'react-toastify';
 import { toastConfig } from '@/toast.config';
+import { Error, getErrorMessage } from '@/getErrorMessage';
 
 export const useGetAllGames = () => {
   const {
@@ -44,8 +45,7 @@ export const useJoinGame = (id: number) => {
       toast.success('Successfully joined the game!', toastConfig);
     },
     onError: (err: Error) => {
-      console.error(err);
-      toast.error('There was an error joining the game', toastConfig);
+      toast.error(getErrorMessage(err), toastConfig);
     },
   });
   return {

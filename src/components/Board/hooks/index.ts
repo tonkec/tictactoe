@@ -1,4 +1,5 @@
 import { IMoveProps, makeMove } from '@/api/games/makeMove';
+import { Error, getErrorMessage } from '@/getErrorMessage';
 import { toastConfig } from '@/toast.config';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
@@ -18,8 +19,7 @@ const useMakeMove = (id: number) => {
       return queryClient.invalidateQueries({ queryKey: [`game`, id] });
     },
     onError: (err: Error) => {
-      console.error(err);
-      toast.error('There was an error making the move', toastConfig);
+      toast.error(getErrorMessage(err), toastConfig);
     },
   });
 

@@ -5,6 +5,7 @@ import { useLocalStorage } from '@uidotdev/usehooks';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { toastConfig } from '@/toast.config';
+import { Error, getErrorMessage } from '@/getErrorMessage';
 
 function useLoginUser() {
   const navigate = useNavigate();
@@ -28,8 +29,7 @@ function useLoginUser() {
       navigate('/');
     },
     onError: (err: Error) => {
-      console.error(err);
-      toast.error('Please try again', toastConfig);
+      toast.error(getErrorMessage(err), toastConfig);
     },
   });
 
