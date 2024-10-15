@@ -5,6 +5,13 @@
 
 - This game implements the tic tac toe functionality relying on the API `https://tictactoe.aboutdream.io`
 
+### How to run this app
+
+- git clone the project 
+- cd into cloned project
+- run `npm install`
+- run `npm run dev`
+
 ### Technologies
 
 - React
@@ -35,3 +42,8 @@ I chose Tailwind because it allows me to write utility-first CSS directly in my 
 ###### React hook form
 
 I chose React Hook Form because it simplifies form management by providing easy validation, error handling, and form state management. It is highly performant since it reduces re-renders and efficiently handles large forms. Additionally, React Hook Form has great integration with TypeScript, making it easier to work with strongly-typed forms.
+
+
+### Conclusion
+
+This app was made purely for showing off my skills to the company that I applied to. I would never use some techniuqes nor approaches in real life project (polling, single branch, no tests).
