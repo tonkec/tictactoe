@@ -1,7 +1,13 @@
 import { Games } from '@/components/Games';
+import { PageTitle } from '@/components/PageTitle';
 
 const Home = () => {
-  return <Games />;
+  return (
+    <>
+      <PageTitle title="Home" />
+      <Games />
+    </>
+  );
 };
 
 export { Home };

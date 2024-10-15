@@ -4,6 +4,7 @@ import { AuthForm } from '@/components/AuthForm';
 import { AuthLink } from '@/components/AuthLink';
 import { useLoginUser } from './hooks';
 import { IUserProps } from './Login.interface';
+import { PageTitle } from '@/components/PageTitle';
 
 export const Login = () => {
   const { loginUser, isCreating } = useLoginUser();
@@ -14,6 +15,8 @@ export const Login = () => {
 
   return (
     <Container isAuth>
+      <PageTitle title="Login" />
+
       <AuthContainer>
         <AuthForm
           isButtonDisabled={isCreating}

@@ -6,6 +6,7 @@ import { Container } from '@/ui/container';
 import { capitalize, determineWinner, getClassName } from './utils';
 import { useEffect, useState } from 'react';
 import { useLocalStorage } from '@uidotdev/usehooks';
+import { PageTitle } from '@/components/PageTitle';
 
 const Game = () => {
   const [username] = useLocalStorage('username');
@@ -26,6 +27,7 @@ const Game = () => {
   if (isLoadingSingleGame) {
     return (
       <Container>
+        <PageTitle title="Game" />
         <Loader />
       </Container>
     );
@@ -34,6 +36,8 @@ const Game = () => {
   if (singleGameError) {
     return (
       <Container>
+        <PageTitle title="Game" />
+
         <div className="flex flex-col justify-center items-center">
           <h2 className="text-center text-4xl">Game not found</h2>
           <Link to="/" className="underline mt-4">
@@ -50,6 +54,8 @@ const Game = () => {
   if (!first_player || !second_player) {
     return (
       <Container>
+        <PageTitle title="Game" />
+
         <h2 className="text-center text-4xl mb-12">
           Some players are missing.
         </h2>
@@ -64,6 +70,7 @@ const Game = () => {
   if (status === 'progress' || status === 'open') {
     return (
       <Container>
+        <PageTitle title="Game" />
         <h2 className="text-center text-2xl mb-12">Game status: {status}</h2>
         <h2 className="text-center text-4xl">
           <span>{capitalize(first_player.username)}</span>
