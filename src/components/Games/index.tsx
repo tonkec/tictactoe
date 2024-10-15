@@ -16,7 +16,7 @@ const Games = () => {
   if (isAllGamesLoading || isNextGamesLoading) {
     return (
       <Container>
-        <Loader />;
+        <Loader />
       </Container>
     );
   }

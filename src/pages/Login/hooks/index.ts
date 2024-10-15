@@ -10,6 +10,7 @@ function useLoginUser() {
   const navigate = useNavigate();
   const [, saveAuthToken] = useLocalStorage('token', null);
   const [, saveUserId] = useLocalStorage('userId', null);
+  const [, saveUserName] = useLocalStorage('username', null);
 
   const {
     mutate: loginUser,
@@ -22,6 +23,7 @@ function useLoginUser() {
     onSuccess: (data) => {
       saveAuthToken(data.data.token);
       saveUserId(data.data.id);
+      saveUserName(data.data.username);
       toast.success('Successfully logged in!', toastConfig);
       navigate('/');
     },
