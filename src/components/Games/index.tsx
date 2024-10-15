@@ -22,11 +22,25 @@ const Games = () => {
   }
 
   if (allGamesError) {
-    return <div>There was an error fetching the games</div>;
+    return (
+      <Container>
+        <div className="mt-12 text-center">
+          <h2 className="text-3xl">
+            There was an error fetching the games data.
+          </h2>
+        </div>
+      </Container>
+    );
   }
 
   if (!allGames) {
-    return <div>No games available</div>;
+    return (
+      <Container>
+        <div className="mt-12">
+          <h2 className="text-3xl">No games available</h2>
+        </div>
+      </Container>
+    );
   }
 
   return (
