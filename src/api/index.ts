@@ -22,8 +22,9 @@ const apiClient = ({ isAuth }: { isAuth: boolean }) => {
     (error) => {
       const errorMessage = getErrorMessage(error);
       if (
-        (error.response.status === 401 && errorMessage === 'Invalid token.') ||
-        errorMessage.includes('Invalid token.')
+        error.response.status === 401 &&
+        (errorMessage === 'Invalid token.' ||
+          errorMessage.includes('Invalid token.'))
       ) {
         localStorage.removeItem('token');
         window.location.href = '/login';
