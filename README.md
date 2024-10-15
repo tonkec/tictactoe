@@ -1,5 +1,8 @@
 # Tic Tac Toe game 
 
+![Preview](https://i.ibb.co/NK0Z65p/Screenshot-2024-10-15-at-10-24-16.png)
+
+
 - This game implements the tic tac toe functionality relying on the API `https://tictactoe.aboutdream.io`
 
 ### Technologies
