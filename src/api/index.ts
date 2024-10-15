@@ -1,3 +1,4 @@
+import { getErrorMessage } from '@/getErrorMessage';
 import axios from 'axios';
 
 const apiClient = ({ isAuth }: { isAuth: boolean }) => {
@@ -19,9 +20,10 @@ const apiClient = ({ isAuth }: { isAuth: boolean }) => {
   instance.interceptors.response.use(
     (response) => response,
     (error) => {
+      const errorMessage = getErrorMessage(error);
       if (
-        error.response.status === 401 &&
-        error.response.message === 'Invalid token'
+        (error.response.status === 401 && errorMessage === 'Invalid token.') ||
+        errorMessage.includes('Invalid token.')
       ) {
         localStorage.removeItem('token');
         window.location.href = '/login';
