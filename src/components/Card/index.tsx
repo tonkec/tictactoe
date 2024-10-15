@@ -6,14 +6,16 @@ import { ICardProps } from './Card.interface';
 
 const Card = ({ game }: ICardProps) => {
   const navigate = useNavigate();
-  const { joinGameMutation, joinGameError } = useJoinGame(Number(game.id));
+  const { joinGameMutation } = useJoinGame(Number(game.id));
   const [currentUserId] = useLocalStorage('userId');
 
-  const creatorOfGame = game.first_player?.id || 0;
+  const firstPlayer = game.first_player?.id || 0;
+  const secondPlayer = game.second_player?.id || 0;
   const buttonText = getButtonText(
     game.status,
-    Number(creatorOfGame),
+    Number(firstPlayer),
     Number(currentUserId),
+    Number(secondPlayer),
   );
   return (
     <div className="w-full block max-w-sm p-6 bg-white rounded-sm shadow">
@@ -28,10 +30,6 @@ const Card = ({ game }: ICardProps) => {
             navigate(`/game/${game.id}`);
           } else if (buttonText === 'View') {
             navigate(`/game/${game.id}`);
-          }
-
-          if (joinGameError) {
-            alert('There was an error joining the game');
           }
         }}
         className={`${getButtonColor(buttonText)} text-white text-sm px-4 py-2 mt-2 rounded`}

@@ -41,6 +41,20 @@ const Game = () => {
   const game = singleGameData?.data;
   const { first_player, second_player, status } = game;
 
+  if (!first_player || !second_player) {
+    return (
+      <Container>
+        <h2 className="text-center text-4xl mb-12">
+          Some players are missing.
+        </h2>
+
+        <div className="flex justify-center">
+          <Board game={game} />
+        </div>
+      </Container>
+    );
+  }
+
   if (status === 'progress' || status === 'open') {
     return (
       <Container>

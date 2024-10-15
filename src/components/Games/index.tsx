@@ -25,17 +25,17 @@ const Games = () => {
   }
 
   return (
-    <div>
+    <div className="px-4">
       <h2 className="text-2xl mb-6 mt-6 text-center">
         Select a game and start playing!
       </h2>
       <div className="flex flex-wrap gap-2"></div>
-      <ul className="grid grid-cols-1 lg:grid-cols-2 gap-2 justify-items-center max-w-[700px] mx-auto">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 justify-items-center max-w-[700px] mx-auto">
         {nextGames?.data.results.map((game: IGame) => (
           <Card key={game.id} game={game} />
         ))}
       </ul>
-      <div className="flex gap-2 mt-4 justify-center items-center">
+      <div className="flex gap-2 mt-12 justify-center items-center">
         <button
           disabled={!nextGames?.data.previous}
           className="bg-black px-4 rounded"
