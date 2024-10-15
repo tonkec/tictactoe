@@ -5,8 +5,10 @@ import { Loader } from '@/components/Loader';
 import { Container } from '@/ui/container';
 import { capitalize, determineWinner, getClassName } from './utils';
 import { useEffect, useState } from 'react';
+import { useLocalStorage } from '@uidotdev/usehooks';
 
 const Game = () => {
+  const [username] = useLocalStorage('username');
   const [refetchTime, setRefetchTime] = useState(0);
   const params = useParams();
   const id = params.id;
@@ -62,9 +64,22 @@ const Game = () => {
   if (status === 'progress' || status === 'open') {
     return (
       <Container>
-        <h2 className="text-center text-4xl">Game status: {status}</h2>
+        <h2 className="text-center text-2xl mb-12">Game status: {status}</h2>
+        <h2 className="text-center text-4xl">
+          <span>{capitalize(first_player.username)}</span>
+          <span> vs. </span>
+          <span>{capitalize(second_player.username)}</span>
+        </h2>
         <div className="flex justify-center mt-12">
-          <Board isClickable game={game} />
+          <Board
+            isClickable={
+              first_player.username.toLowerCase() ===
+                (username as string).toLowerCase() ||
+              second_player.username.toLowerCase() ===
+                (username as string).toLowerCase()
+            }
+            game={game}
+          />
         </div>
       </Container>
     );
