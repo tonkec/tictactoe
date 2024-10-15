@@ -1,11 +1,6 @@
-import { IGame } from '../Games/Games.interface';
 import { useMakeMove } from './hooks';
 import { getWinningCells } from './utils';
-
-interface IBoardProps {
-  game: IGame;
-  isClickable?: boolean;
-}
+import { IBoardProps } from './Board.interface';
 
 const Board = ({ game, isClickable }: IBoardProps) => {
   const id = Number(game.id);

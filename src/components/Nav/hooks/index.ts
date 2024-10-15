@@ -3,6 +3,8 @@ import { logout } from '../../../api/auth/logout';
 import { useNavigate } from 'react-router-dom';
 import { useLocalStorage } from '@uidotdev/usehooks';
 import { createNewGame } from '../../../api/games/createNewGame';
+import { toast } from 'react-toastify';
+import { toastConfig } from '@/toast.config';
 
 function useLogoutUser() {
   const navigate = useNavigate();
@@ -18,9 +20,12 @@ function useLogoutUser() {
     onSuccess: () => {
       saveAuthToken(null);
       navigate('/login');
+      toast.success('Logged out successfully', toastConfig);
     },
-    onError: (err: Error) =>
-      console.log('error while logging out:', err.message),
+    onError: (err: Error) => {
+      console.log('error while logging out:', err.message);
+      toast.error('Error while logging out', toastConfig);
+    },
   });
 
   return { isCreating, logoutUser, isLogoutError, isSuccess };

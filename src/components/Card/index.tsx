@@ -1,12 +1,8 @@
 import { useLocalStorage } from '@uidotdev/usehooks';
-import { IGame } from '../Games/Games.interface';
 import { useNavigate } from 'react-router-dom';
 import { useJoinGame } from '../Games/hooks';
 import { getButtonText, getButtonColor } from './utils';
-
-interface ICardProps {
-  game: IGame;
-}
+import { ICardProps } from './Card.interface';
 
 const Card = ({ game }: ICardProps) => {
   const navigate = useNavigate();
