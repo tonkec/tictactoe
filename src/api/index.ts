@@ -19,7 +19,10 @@ const apiClient = ({ isAuth }: { isAuth: boolean }) => {
   instance.interceptors.response.use(
     (response) => response,
     (error) => {
-      if (error.response.status === 401) {
+      if (
+        error.response.status === 401 &&
+        error.response.message === 'Invalid token'
+      ) {
         localStorage.removeItem('token');
         window.location.href = '/login';
       }
