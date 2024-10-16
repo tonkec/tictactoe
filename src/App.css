@@ -6,7 +6,8 @@ body, html, #root {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    @apply w-full h-full bg-pinkPale dark:bg-black;
+    @apply w-full bg-pinkPale dark:bg-black;
+    min-height: 100vh;
 }
 
 input:disabled, 

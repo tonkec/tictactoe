@@ -6,7 +6,7 @@ export const AuthLink = ({ href, title }: IAuthLinkProps) => {
   return (
     <p className={secondButtonClassName}>
       {title}{' '}
-      <Link to={href} className="underline">
+      <Link to={href} className="underline dark:text-white">
         {' '}
         here
       </Link>
