@@ -96,6 +96,8 @@ const Game = () => {
 
   return (
     <Container>
+      <PageTitle title="Game" />
+
       <h2 className="text-center text-4xl">
         <span className={getClassName(winner, first_player.username)}>
           {capitalize(first_player.username)}
