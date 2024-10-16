@@ -1,10 +1,11 @@
 import { useMakeMove } from './hooks';
 import { getWinningCells } from './utils';
 import { IBoardProps } from './Board.interface';
+import { Loader } from '../Loader';
 
 const Board = ({ game, isClickable }: IBoardProps) => {
   const id = Number(game.id);
-  const { makeMoveMutatation } = useMakeMove(id);
+  const { makeMoveMutatation, isMakingMove } = useMakeMove(id);
   const { board, first_player, second_player } = game;
   const winningCells = getWinningCells(board);
 
@@ -28,7 +29,11 @@ const Board = ({ game, isClickable }: IBoardProps) => {
                   makeMoveMutatation({ id, row, col });
                 }}
               >
-                <span className="text-2xl">{playerSymbols[value] || ''}</span>
+                {isMakingMove ? (
+                  <Loader color="white" height={20} width={20} />
+                ) : (
+                  playerSymbols[value]
+                )}
               </button>
             </div>
           )),

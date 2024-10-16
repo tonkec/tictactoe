@@ -1,13 +1,19 @@
 import { BallTriangle } from 'react-loader-spinner';
 
-const Loader = () => {
+interface ILoaderProps {
+  height?: number;
+  width?: number;
+  color?: string;
+}
+
+const Loader = ({ height, width, color }: ILoaderProps) => {
   return (
     <div className="flex justify-center items-center">
       <BallTriangle
-        height={50}
-        width={50}
+        height={height || 50}
+        width={width || 50}
         radius={5}
-        color="#D90368"
+        color={color || '#D90368'}
         ariaLabel="ball-triangle-loading"
         visible={true}
       />
