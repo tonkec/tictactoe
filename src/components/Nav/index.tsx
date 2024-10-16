@@ -9,7 +9,7 @@ const Nav = () => {
     setIsShown(!isShown);
   };
   return (
-    <nav className="flex fixed left-0 right-0 bg-pink px-4 py-6 items-center">
+    <nav className="flex fixed left-0 right-0 bg-pink dark:bg-blackDark px-4 py-6 items-center">
       <RxHamburgerMenu
         fontSize="1.5rem"
         color="white"

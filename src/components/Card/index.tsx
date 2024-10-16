@@ -18,7 +18,7 @@ const Card = ({ game }: ICardProps) => {
     Number(secondPlayer),
   );
   return (
-    <div className="w-full block max-w-sm p-6 bg-white rounded-sm shadow">
+    <div className="w-full block max-w-sm p-6 bg-white dark:bg-yellow rounded-sm shadow">
       <h2>Game id: {game.id}</h2>
       <p>Status: {game.status}</p>
       <button

@@ -6,7 +6,7 @@ body, html, #root {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    @apply w-full h-full bg-pinkPale;
+    @apply w-full h-full bg-pinkPale dark:bg-black;
 }
 
 input:disabled, 
@@ -15,4 +15,8 @@ button:disabled,
 button[disabled] {
     cursor: not-allowed;
     opacity: 0.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @apply dark:text-white;
 }

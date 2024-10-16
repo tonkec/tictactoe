@@ -23,6 +23,6 @@ export const determineWinner = (
 
 export const getClassName = (winner: string, player: string) => {
   if (winner === player) {
-    return 'bg-green-200 px-4';
+    return 'bg-green-200 dark:bg-yellow px-4';
   }
 };

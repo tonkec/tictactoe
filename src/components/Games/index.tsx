@@ -55,7 +55,7 @@ const Games = () => {
       <div className="flex gap-2 mt-12 justify-center items-center">
         <button
           disabled={!nextGames?.data.previous}
-          className="bg-black px-4 rounded"
+          className="bg-black dark:bg-yellow px-4 rounded"
           onClick={() => {
             setPaginatedUrl(nextGames?.data.previous);
           }}
@@ -69,7 +69,7 @@ const Games = () => {
 
         <button
           disabled={!nextGames?.data.next}
-          className="bg-black px-4 rounded"
+          className="bg-black dark:bg-yellow px-4 rounded"
           onClick={() => {
             setPaginatedUrl(nextGames?.data.next);
           }}

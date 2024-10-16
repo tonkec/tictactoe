@@ -30,10 +30,10 @@ export const getButtonText = (
 
 export const getButtonColor = (text: string) => {
   if (text === 'Join') {
-    return 'bg-pink';
+    return 'bg-pink dark:bg-white';
   } else if (text === 'Continue') {
-    return 'bg-blue';
+    return 'bg-blue dark:bg-black';
   } else if (text === 'View') {
-    return 'bg-black';
+    return 'bg-black dark:bg-black';
   }
 };
