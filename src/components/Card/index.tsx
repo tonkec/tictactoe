@@ -19,8 +19,8 @@ const Card = ({ game }: ICardProps) => {
   );
   return (
     <div className="w-full block max-w-sm p-6 bg-white dark:bg-yellow rounded-sm shadow">
-      <h2>Game id: {game.id}</h2>
-      <p>Status: {game.status}</p>
+      <h2 className="dark:text-black">Game id: {game.id}</h2>
+      <p className="dark:text-black">Status: {game.status}</p>
       <button
         onClick={() => {
           if (buttonText === 'Join') {
